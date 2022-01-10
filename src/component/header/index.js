@@ -104,7 +104,7 @@ const Header = () => {
                 {pages.map((page) => (
                   <MenuItem key={page.link} onClick={handleCloseNavMenu}>
                     <NavLink
-                      to={"/" + page.link}
+                      to={"/pragyarosystem/" + page.link}
                       style={{
                         color: "black",
                         textDecoration: "none",
@@ -130,7 +130,7 @@ const Header = () => {
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <NavLink
-                  to={"/" + page.link}
+                  to={"/pragyarosystem/" + page.link}
                   className={({ isActive }) =>
                     isActive ? "active" : "inactive"
                   }

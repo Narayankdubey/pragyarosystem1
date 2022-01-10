@@ -6,7 +6,6 @@ import BusinessIcon from "@mui/icons-material/Business";
 const Contact = () => {
   return (
     <Grid container spacing={0} p={2}>
-      {/* <Typography>Pragya RO System</Typography> */}
       <Typography
         variant="h4"
         component="h1"
@@ -51,8 +50,7 @@ const Contact = () => {
           <p>
             Krishna Vihar, Gathola Road, Lakh No.11, Near Mahavir Mandir,
             Bahiro,
-            <br /> Ara, Bhojpur, Bihar <br />
-            (801109)
+            <br /> Ara, Bhojpur, Bihar
           </p>
         </Typography>
       </Grid>

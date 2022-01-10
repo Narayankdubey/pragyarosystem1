@@ -1,0 +1,18 @@
+.offerImg {
+  width: 80%;
+  box-shadow: 0px 2px 5px black;
+  z-index: 2;
+}
+
+.filterdProduct {
+  width: 80%;
+  background-color: pink;
+}
+@media screen and (max-width: 900px) {
+  .offerImg {
+    width: 100%;
+  }
+  .filterdProduct {
+    width: 100%;
+  }
+}

@@ -6,9 +6,12 @@ const Footer = () => {
       <p>8920310622</p>
       <p>
         Krishna Vihar, Gathola Road, Lakh No.11, Near Mahavir Mandir, Bahiro,
-        Ara, Bhojpur, Bihar (801109)
+        Ara, Bhojpur, Bihar
       </p>
-      <small>copyright @pragya ro system 2022</small>
+      <small>
+        Copyright @Pragya RO System 2022 <br />
+        All Rights Reserved.
+      </small>
     </footer>
   );
 };

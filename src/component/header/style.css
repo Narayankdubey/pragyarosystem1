@@ -11,9 +11,17 @@
     letter-spacing: 5px;
     color: black;
   }
+  25% {
+    letter-spacing: 10px;
+    color: red;
+  }
   50% {
     letter-spacing: 15px;
     color: white;
+  }
+  75% {
+    letter-spacing: 10px;
+    color: rgb(200, 255, 0);
   }
   100% {
     letter-spacing: 5px;

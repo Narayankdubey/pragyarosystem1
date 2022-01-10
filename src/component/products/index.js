@@ -4,9 +4,11 @@ import { Container, Box, Grid, Paper, Typography, Button } from "@mui/material";
 import getDataFromServer from "../../asset/data/data";
 import BuyNowModal from "../buyNowModal/index";
 
-const Products = () => {
+const Products = ({ filterData }) => {
+  const filter = filterData ? filterData : "";
   const [buyNowModalOpen, setBuyNowModalOpen] = useState(false);
-  const data = getDataFromServer();
+  const rawData = getDataFromServer();
+  const data = rawData.filter((data) => data.product_name.includes(filter));
 
   const buyNowHandler = () => {
     setBuyNowModalOpen(true);
@@ -48,7 +50,7 @@ const Products = () => {
               <img src={data.img} width="100" height="150" />
               <Typography variant="h6">{data.product_name}</Typography>
               <Typography variant="body2">
-                {data.Purifiying_Technology}
+                ({data.Purifiying_Technology})
               </Typography>
               <Typography variant="body2">{data.capacity}L Capacity</Typography>
               <Typography variant="body2">{data.Voltage}VDC Volt</Typography>
