@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/pragyarosystem/static/css/main.a240c550.css",
-    "main.js": "/pragyarosystem/static/js/main.07355761.js",
+    "main.css": "/pragyarosystem/static/css/main.0b0ccc44.css",
+    "main.js": "/pragyarosystem/static/js/main.545e9b27.js",
     "index.html": "/pragyarosystem/index.html",
-    "main.a240c550.css.map": "/pragyarosystem/static/css/main.a240c550.css.map",
-    "main.07355761.js.map": "/pragyarosystem/static/js/main.07355761.js.map"
+    "main.0b0ccc44.css.map": "/pragyarosystem/static/css/main.0b0ccc44.css.map",
+    "main.545e9b27.js.map": "/pragyarosystem/static/js/main.545e9b27.js.map"
   },
   "entrypoints": [
-    "static/css/main.a240c550.css",
-    "static/js/main.07355761.js"
+    "static/css/main.0b0ccc44.css",
+    "static/js/main.545e9b27.js"
   ]
 }
