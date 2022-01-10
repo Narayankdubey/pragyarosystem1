@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -14,8 +14,23 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
-const pages = ["home", "products", "contact"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+import "./style.css";
+
+const pages = [
+  {
+    link: "home",
+    title: "Home",
+  },
+  {
+    link: "products",
+    title: "Products",
+  },
+  {
+    link: "contact",
+    title: "Contact Us",
+  },
+];
+// const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -37,104 +52,115 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              border: "2px solid red",
-              borderRadius: "45px",
-            }}
-          >
-            PRS
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+    <>
+      <h1 className="top-heading">Pragya RO System</h1>
+      <AppBar position="sticky">
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
               sx={{
-                display: { xs: "block", md: "none" },
+                mr: 2,
+                display: { xs: "none", md: "flex" },
+                borderRadius: "45px",
+                padding: "5px",
+                boxShadow: "0px 10px 11px black",
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Link to={"/" + page} style={{ color: "black" }}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </Link>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{
-              flexGrow: 1,
-              display: { xs: "flex", md: "none" },
-              // border: "2px solid red",
-              // borderRadius: "45px",
-            }}
-          >
-            PRS
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Link to={"/" + page} style={{ color: "white" }}>
-                <Button
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{ color: "white", display: "block" }}
-                >
-                  {page}
-                </Button>
-              </Link>
-            ))}
-          </Box>
+              Pragya RO System
+            </Typography>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <a
-              href="https://wa.me/918920310622?text=I'm%20interested%20in"
-              style={{ color: "white" }}
+            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              >
+                {pages.map((page) => (
+                  <MenuItem key={page.link} onClick={handleCloseNavMenu}>
+                    <NavLink
+                      to={"/" + page.link}
+                      style={{
+                        color: "black",
+                        textDecoration: "none",
+                      }}
+                    >
+                      <Typography textAlign="center">{page.title}</Typography>
+                    </NavLink>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{
+                flexGrow: 1,
+                display: { xs: "flex", md: "none" },
+              }}
             >
-              <WhatsAppIcon />
-            </a>
-            {/* <Button sx={{ color: "white", display: "block" }}>
+              Pragya RO System
+            </Typography>
+            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+              {pages.map((page) => (
+                <NavLink
+                  to={"/" + page.link}
+                  className={({ isActive }) =>
+                    isActive ? "active" : "inactive"
+                  }
+                  style={{
+                    padding: "22px",
+                    fontSize: "20px",
+                    textDecoration: "none",
+                  }}
+                >
+                  {page.title}
+                </NavLink>
+              ))}
+            </Box>
+
+            <Box sx={{ flexGrow: 0 }}>
+              <a
+                href="https://wa.me/918920310622?text=I'm%20interested%20in"
+                style={{ color: "white" }}
+              >
+                <WhatsAppIcon />
+              </a>
+              {/* <Button sx={{ color: "white", display: "block" }}>
               <WhatsAppIcon />
             </Button> */}
-            {/* <Tooltip title="Open settings">
+              {/* <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip> */}
-            {/* <Menu
+              {/* <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
               anchorEl={anchorElUser}
@@ -156,10 +182,11 @@ const Header = () => {
                 </MenuItem>
               ))}
             </Menu> */}
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </>
   );
 };
 export default Header;
