@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -10,7 +11,9 @@ const Footer = () => {
       </p>
       <small>
         Copyright @Pragya RO System 2022 <br />
-        All Rights Reserved.
+        <Link to="/admin" style={{ color: "black", textDecoration: "none" }}>
+          All Rights Reserved.
+        </Link>
       </small>
     </footer>
   );
