@@ -1,5 +1,6 @@
-import * as React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -13,6 +14,8 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+
+import { checkLoginStatus, logout } from "../../../store/admin-action";
 
 import "./style.css";
 
@@ -30,12 +33,22 @@ const pages = [
     title: "Contact Us",
   },
 ];
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Header = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { loggedIn } = useSelector((state) => state.admin);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
 
+  useEffect(() => {
+    dispatch(checkLoginStatus());
+    // if (!loggedIn) {
+    //   navigate("/admin");
+    // }
+    // eslint-disable-next-line
+  }, [loggedIn]);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -50,6 +63,14 @@ const Header = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const handleSettingClick = (value) => {
+    handleCloseUserMenu();
+    if (value === "Logout") {
+      dispatch(logout());
+    }
+    console.log(value, "handleSettingClick");
+  };
+  console.log(loggedIn, "logedin before return");
 
   return (
     <>
@@ -130,6 +151,7 @@ const Header = () => {
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <NavLink
+                  key={page.link}
                   to={"/pragyarosystem/" + page.link}
                   className={({ isActive }) =>
                     isActive ? "active" : "inactive"
@@ -146,42 +168,50 @@ const Header = () => {
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
-              <a
-                href="https://wa.me/918920310622?text=I'm%20interested%20in"
-                style={{ color: "white" }}
-              >
-                <WhatsAppIcon />
-              </a>
-              {/* <Button sx={{ color: "white", display: "block" }}>
-              <WhatsAppIcon />
-            </Button> */}
-              {/* <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip> */}
-              {/* <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu> */}
+              {!loggedIn ? (
+                <a
+                  href="https://wa.me/918920310622?text=I'm%20interested%20in"
+                  style={{ color: "white" }}
+                >
+                  <WhatsAppIcon />
+                </a>
+              ) : (
+                <>
+                  <Tooltip title="Open settings">
+                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                      <Avatar
+                        alt="Remy Sharp"
+                        src="/static/images/avatar/2.jpg"
+                      />
+                    </IconButton>
+                  </Tooltip>
+                  <Menu
+                    sx={{ mt: "45px" }}
+                    id="menu-appbar"
+                    anchorEl={anchorElUser}
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    open={Boolean(anchorElUser)}
+                    onClose={handleCloseUserMenu}
+                  >
+                    {settings.map((setting) => (
+                      <MenuItem
+                        key={setting}
+                        onClick={() => handleSettingClick(setting)}
+                      >
+                        <Typography textAlign="center">{setting}</Typography>
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                </>
+              )}
             </Box>
           </Toolbar>
         </Container>

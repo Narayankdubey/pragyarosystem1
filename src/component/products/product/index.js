@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Container, Box, Grid, Paper, Typography, Button } from "@mui/material";
 
-import getDataFromServer from "../../asset/data/data";
+import getDataFromServer from "../../../asset/data/data";
 import BuyNowModal from "../buyNowModal/index";
 
+import { getAllProducts } from "../../../store/product-action";
+
 const Products = ({ filterData }) => {
-  const filter = filterData ? filterData : "";
+  const dispatch = useDispatch();
+  const { products } = useSelector((state) => state.product);
   const [buyNowModalOpen, setBuyNowModalOpen] = useState(false);
-  const rawData = getDataFromServer();
+
+  useEffect(() => {
+    dispatch(getAllProducts());
+    // eslint-disable-next-line
+  }, []);
+
+  const filter = filterData ? filterData : "";
+  const rawData = products;
   const data = rawData.filter((data) => data.product_name.includes(filter));
 
   const buyNowHandler = () => {
@@ -24,7 +35,6 @@ const Products = ({ filterData }) => {
         container
         spacing={2}
         p={2}
-        wrap
         sx={{
           justifyContent: "center",
           alignItems: "center",
@@ -34,6 +44,7 @@ const Products = ({ filterData }) => {
           return (
             // <Grid item xs={4} key={index}>
             <Paper
+              key={index}
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -50,15 +61,15 @@ const Products = ({ filterData }) => {
               <img src={data.img} width="100" height="150" />
               <Typography variant="h6">{data.product_name}</Typography>
               <Typography variant="body2">
-                ({data.Purifiying_Technology})
+                ({data.purifiying_technology})
               </Typography>
               <Typography variant="body2">{data.capacity}L Capacity</Typography>
-              <Typography variant="body2">{data.Voltage}VDC Volt</Typography>
+              <Typography variant="body2">{data.voltage}VDC Volt</Typography>
               <Typography variant="body2">
-                {data.Booster_Pump} Booster Pump
+                {data.booster_pump} Booster Pump
               </Typography>
               <Typography variant="body1" sx={{ fontWeight: "600" }}>
-                ₹{data.Price}/-
+                MRP ₹{data.price}/-
               </Typography>
               <Button variant="contained" onClick={buyNowHandler}>
                 Buy Now

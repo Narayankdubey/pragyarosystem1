@@ -3,9 +3,9 @@ import { Typography } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
 import { Link } from "react-router-dom";
 
-import Products from "../products";
+import Products from "../product";
 import style from "./style.css";
-import offer from "../../asset/img/offer.jpeg";
+import offer from "../../../asset/img/offer.jpeg";
 
 const Home = () => {
   return (
@@ -19,9 +19,7 @@ const Home = () => {
       }}
     >
       <img src={offer} className="offerImg" />
-      <div
-        className="filterdProduct"
-      >
+      <div className="filterdProduct">
         <Typography
           component={"h6"}
           variant="h5"
