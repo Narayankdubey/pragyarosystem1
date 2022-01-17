@@ -5,7 +5,9 @@ const baseURL = process.env.REACT_APP_API_BASE_URL;
 export const getAllProducts = (type, pageNo) => {
   return async (dispatch) => {
     const getData = async () => {
-      const response = await axios.get(`${baseURL}products`);
+      const response = await axios.get(
+        `https://pragyarosystem-heroku.herokuapp.com/products`
+      );
       if (response.status === "failure") {
         throw new Error(response.data.message);
       }

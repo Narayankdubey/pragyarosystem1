@@ -4,14 +4,19 @@ import authHeader from "../authHeader";
 import { uiActions } from "./ui-slice";
 
 const baseURL = process.env.REACT_APP_API_BASE_URL;
+console.log(baseURL, "baseUrl in aciton");
 
 export const adminLogin = (data) => {
   return async (dispatch) => {
     dispatch(uiActions.toggleLoader());
     const getData = async () => {
-      const response = await axios.post(`${baseURL}login`, data, {
-        headers: { "Content-type": "application/json" },
-      });
+      const response = await axios.post(
+        `https://pragyarosystem-heroku.herokuapp.com/login`,
+        data,
+        {
+          headers: { "Content-type": "application/json" },
+        }
+      );
       console.log(response, "inside axios");
       if (response.status === "failure") {
         throw new Error(response.data.message);
@@ -59,9 +64,13 @@ export const adminLogin = (data) => {
 export const createProducts = (data) => {
   return async (dispatch) => {
     const getData = async () => {
-      const response = await axios.post(`${baseURL}products`, data, {
-        headers: authHeader(),
-      });
+      const response = await axios.post(
+        `https://pragyarosystem-heroku.herokuapp.com/products`,
+        data,
+        {
+          headers: authHeader(),
+        }
+      );
       if (response.status === "failure") {
         throw new Error(response.data.message);
       }

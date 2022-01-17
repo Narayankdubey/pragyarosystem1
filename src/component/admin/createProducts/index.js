@@ -52,6 +52,7 @@ const CreateProduct = () => {
 
     if (noErrors) {
       dispatch(createProducts(data));
+      setData(initialState);
     }
   };
   const inputData = [
