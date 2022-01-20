@@ -25,7 +25,6 @@ export const adminLogin = (data) => {
     };
     try {
       const data = await getData();
-      console.log(data, "action");
       if (data.status === 200) {
         dispatch(
           uiActions.showNotification({
@@ -63,6 +62,7 @@ export const adminLogin = (data) => {
 };
 export const createProducts = (data) => {
   return async (dispatch) => {
+    dispatch(uiActions.toggleLoader());
     const getData = async () => {
       const response = await axios.post(
         `https://pragyarosystem-heroku.herokuapp.com/products`,
@@ -78,10 +78,28 @@ export const createProducts = (data) => {
     };
     try {
       const data = await getData();
-      console.log(data, "try action");
+      dispatch(
+        uiActions.showNotification({
+          status: "success",
+          title: "success",
+          message: "Product Added Successfully !",
+        })
+      );
       dispatch(adminActions.createProduct(data));
     } catch (error) {
       console.log(error);
+      if (error.response) {
+        // Request made and server responded
+        dispatch(
+          uiActions.showNotification({
+            status: "error",
+            title: "error",
+            message: error.response.data,
+          })
+        );
+      }
+    } finally {
+      dispatch(uiActions.toggleLoader());
     }
   };
 };

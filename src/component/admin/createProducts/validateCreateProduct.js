@@ -10,8 +10,8 @@ export default function validateForm(data) {
   if (!data.capacity.length) {
     errors.capacity = "Client Name Required";
   }
-  if (!data.purifiying_technology.trim()) {
-    errors.purifiying_technology = "Purifiying Technology Required";
+  if (!data.purifying_technology.trim()) {
+    errors.purifying_technology = "Purifiying Technology Required";
   }
   if (!data.booster_pump.trim()) {
     errors.booster_pump = "Booster Pump Required";

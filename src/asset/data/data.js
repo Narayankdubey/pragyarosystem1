@@ -44,7 +44,7 @@ const data = [
     color: "White",
     capacity: 15,
     Purifiying_Technology: "RO+UV+TDS control",
-    Purification_Features: "Alkaline Vitamin B12 +Copper Filter +RO+UF+TDS",
+    Purification_Features: "Alkaline Vitamin B12 +Copper Filter",
     Booster_Pump: "Mpex 100GPD",
     Voltage: 24,
     Price: 5000,

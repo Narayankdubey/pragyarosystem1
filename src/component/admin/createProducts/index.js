@@ -13,7 +13,7 @@ const CreateProduct = () => {
     product_name: "",
     color: "",
     capacity: parseInt(""),
-    purifiying_technology: "",
+    purifying_technology: "",
     booster_pump: "",
     voltage: parseInt(""),
     img: "",
@@ -28,7 +28,7 @@ const CreateProduct = () => {
     product_name,
     color,
     capacity,
-    purifiying_technology,
+    purifying_technology,
     booster_pump,
     voltage,
     img,
@@ -56,18 +56,39 @@ const CreateProduct = () => {
     }
   };
   const inputData = [
-    { name: "product_name", type: "text", value: product_name },
-    { name: "color", type: "text", value: color },
-    { name: "capacity", type: "number", value: capacity },
     {
-      name: "purifiying_technology",
+      name: "product_name",
       type: "text",
-      value: purifiying_technology,
+      value: product_name,
+      placeholder: "Enter Product Name",
     },
-    { name: "booster_pump", type: "text", value: booster_pump },
-    { name: "voltage", type: "number", value: voltage },
-    { name: "price", type: "number", value: price },
-    { name: "img", type: "text", value: img },
+    { name: "color", type: "text", value: color, placeholder: "Enter Colour" },
+    {
+      name: "capacity",
+      type: "number",
+      value: capacity,
+      placeholder: "Enter Capacity",
+    },
+    {
+      name: "purifying_technology",
+      type: "text",
+      value: purifying_technology,
+      placeholder: "Enter Purifying Technology",
+    },
+    {
+      name: "booster_pump",
+      type: "text",
+      value: booster_pump,
+      placeholder: "Enter Booster Pump",
+    },
+    {
+      name: "voltage",
+      type: "number",
+      value: voltage,
+      placeholder: "Enter Voltage",
+    },
+    { name: "price", type: "number", value: price, placeholder: "Enter Price" },
+    { name: "img", type: "text", value: img, placeholder: "Enter Image Link" },
   ];
   return (
     <div className="createProduct-container">
@@ -79,13 +100,13 @@ const CreateProduct = () => {
           </Button>
         </div>
         {inputData.map((data, index) => {
-          const { name, type, value } = data;
+          const { name, type, value, placeholder } = data;
           return (
             <div className="input-field-container">
               <TextField
                 key={index}
                 name={name}
-                label={name}
+                label={placeholder}
                 type={type}
                 variant="outlined"
                 error={error[name] ? true : false}
@@ -121,10 +142,10 @@ const CreateProduct = () => {
         onChange={onChangeHandler}
       />
       <TextField
-        name="purifiying_technology"
+        name="purifying_technology"
         label="Purifiying Technology"
         variant="outlined"
-        value={purifiying_technology}
+        value={purifying_technology}
         onChange={onChangeHandler}
       />
       <TextField

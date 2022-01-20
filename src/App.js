@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.css";
 import Header from "./component/products/header";

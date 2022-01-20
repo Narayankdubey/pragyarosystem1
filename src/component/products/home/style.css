@@ -6,13 +6,81 @@
 
 .filterdProduct {
   width: 80%;
-  background-color: pink;
+  background-color: rgb(235, 248, 253);
+}
+.mobie-banner {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mobie-banner > h2 {
+  text-align: center;
+  font-weight: bolder;
+}
+.mobie-banner > p {
+  text-align: center;
+  font-weight: bold;
+}
+.product-intro {
+  width: 95%;
+  padding: 35px;
+  margin: 15px;
+  color: rgb(11, 11, 114);
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0px 0px 32px rgb(150, 150, 235);
+}
+.product-intro > h2 {
+  width: 100%;
+  color: blue;
+  /* margin-left: 30px; */
+}
+.product-intro > div {
+  width: 45%;
+}
+.view-more {
+  padding: 5px;
+  background-color: rgb(107, 107, 250);
+  /* border: none; */
+  border-radius: 15px;
 }
 @media screen and (max-width: 900px) {
   .offerImg {
     width: 100%;
   }
   .filterdProduct {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .carousel {
+    /* width: 80%; */
+    display: none;
+  }
+}
+@media screen and (max-width: 900px) {
+  .product-intro {
+    flex-direction: column;
+    text-align: center;
+  }
+  .product-intro > div {
+    width: 90%;
+  }
+  .product-intro > h2 {
+    order: -1;
+  }
+  .product-intro-right {
+    order: -1;
+  }
+}
+@media screen and (max-width: 416px) {
+  .product-intro-right > img {
     width: 100%;
   }
 }

@@ -53,7 +53,7 @@ const Products = ({ filterData }) => {
                 padding: "10px",
                 margin: "20px",
                 width: "300px",
-                background: "#f5f5f5",
+                // background: "#f5f5f5",
                 // minWidth: "200px",
                 // maxWidth: "300px",
               }}
@@ -61,7 +61,7 @@ const Products = ({ filterData }) => {
               <img src={data.img} width="100" height="150" />
               <Typography variant="h6">{data.product_name}</Typography>
               <Typography variant="body2">
-                ({data.purifiying_technology})
+                ({data.purifying_technology})
               </Typography>
               <Typography variant="body2">{data.capacity}L Capacity</Typography>
               <Typography variant="body2">{data.voltage}VDC Volt</Typography>

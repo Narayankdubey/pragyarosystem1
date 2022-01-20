@@ -1,6 +1,7 @@
 .top-heading {
   text-align: center;
   padding: 5px;
+  margin: 0;
   background-color: #1976d2;
   animation-name: top-heading-animation;
   animation-duration: 2s;
