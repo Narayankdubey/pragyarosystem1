@@ -21,6 +21,10 @@ const Home = () => {
     { name: "newYearOffer", link: offer },
     { name: "newYearOffer", link: navvarsh },
   ];
+  const carouselItemMobile = [
+    "https://img.freepik.com/free-vector/sale-this-weekend-special-offer-label-up-70-off_132477-34.jpg?size=626&ext=jpg",
+    "https://www.pureitwater.com/IN/frontend/images/safe_water_mobile_bnr.jpg",
+  ];
   return (
     <>
       <div
@@ -33,7 +37,7 @@ const Home = () => {
           background: "#f8f9fa",
         }}
       >
-        <Carousel className="carousel">
+        <Carousel className="carousel-bigscreen">
           {carouselItem.map((item, index) => {
             return (
               <Carousel.Item>
@@ -42,6 +46,22 @@ const Home = () => {
                   src={item.link}
                   alt="First slide"
                   width="100%"
+                  height="348.87px"
+                />
+              </Carousel.Item>
+            );
+          })}
+        </Carousel>
+        <Carousel className="carousel-mobile">
+          {carouselItemMobile.map((item, index) => {
+            return (
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={item}
+                  alt="First slide"
+                  width="100%"
+                  // style={{ boderBottom: "none" }}
                 />
               </Carousel.Item>
             );

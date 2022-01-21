@@ -8,6 +8,12 @@
   width: 80%;
   background-color: rgb(235, 248, 253);
 }
+.carousel-bigscreen {
+  /* width: 80%; */
+}
+.carousel-mobile {
+  display: none;
+}
 .mobie-banner {
   padding-top: 30px;
   display: flex;
@@ -64,9 +70,20 @@
   }
 }
 @media screen and (max-width: 700px) {
-  .carousel {
+  .carousel-bigscreen {
     /* width: 80%; */
     display: none;
+  }
+  .carousel-mobile {
+    /* width: 80%; */
+    display: block;
+  }
+  .carousel-mobile img {
+    width: 100%;
+    height: 380.47px;
+  }
+  .carousel-mobile .active {
+    border-bottom: none;
   }
 }
 @media screen and (max-width: 900px) {
