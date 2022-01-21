@@ -23,6 +23,11 @@
   text-align: center;
   font-weight: bold;
 }
+.contact-banner {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
 .product-intro {
   width: 95%;
   padding: 35px;
@@ -82,5 +87,14 @@
 @media screen and (max-width: 416px) {
   .product-intro-right > img {
     width: 100%;
+  }
+}
+@media screen and (max-width: 375px) {
+  .contact-banner {
+    /* justify-content: space-between; */
+    flex-direction: column;
+  }
+  .contact-banner > a {
+    margin-top: 5px;
   }
 }

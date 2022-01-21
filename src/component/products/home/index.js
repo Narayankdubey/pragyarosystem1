@@ -1,5 +1,7 @@
 import React from "react";
 import { Button, Typography } from "@mui/material";
+import CallIcon from "@mui/icons-material/Call";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 // import Carousel from "react-material-ui-carousel";
 import { Link } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
@@ -54,6 +56,25 @@ const Home = () => {
             width="80%"
           />
           <p>Best Place to Buy</p>
+          <div className="contact-banner">
+            <Button
+              href="tel:8920310622"
+              variant="contained"
+              color="secondary"
+              startIcon={<CallIcon />}
+            >
+              8920310622
+            </Button>
+            <Button
+              href="https://wa.me/918920310622?text=I'm%20interested"
+              variant="contained"
+              color="success"
+              startIcon={<WhatsAppIcon />}
+              // style={{ marginTop: "5px" }}
+            >
+              Whatsapp
+            </Button>
+          </div>
         </div>
 
         {/* <Carousel>

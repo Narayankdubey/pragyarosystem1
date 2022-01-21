@@ -170,7 +170,7 @@ const Header = () => {
             <Box sx={{ flexGrow: 0 }}>
               {!loggedIn ? (
                 <a
-                  href="https://wa.me/918920310622?text=I'm%20interested%20in"
+                  href="https://wa.me/918920310622?text=I'm%20interested"
                   style={{ color: "white" }}
                 >
                   <WhatsAppIcon />
