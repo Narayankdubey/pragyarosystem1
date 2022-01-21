@@ -89,9 +89,8 @@
     width: 100%;
   }
 }
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 350px) {
   .contact-banner {
-    /* justify-content: space-between; */
     flex-direction: column;
   }
   .contact-banner > a {
