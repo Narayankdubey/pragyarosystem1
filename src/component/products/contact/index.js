@@ -5,7 +5,7 @@ import BusinessIcon from "@mui/icons-material/Business";
 
 const Contact = () => {
   return (
-    <Grid container spacing={0} p={2}>
+    <Grid container spacing={0} p={2} height="calc(100% - 255px)">
       <Typography
         variant="h4"
         component="h1"
@@ -23,7 +23,7 @@ const Contact = () => {
         spacing={0}
         style={{
           width: "100%",
-          minHeight: "calc(100vh - 235px)",
+          minHeight: "calc(100% - 352.99px)",
           justifyContent: "space-around",
           alignItems: "center",
         }}

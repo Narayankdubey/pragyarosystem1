@@ -4,6 +4,7 @@ import { Container, Box, Grid, Paper, Typography, Button } from "@mui/material";
 
 import getDataFromServer from "../../../asset/data/data";
 import BuyNowModal from "../buyNowModal/index";
+import ProductSkeleton from "../../UI/ProductSkeleton";
 
 import { getAllProducts } from "../../../store/product-action";
 
@@ -38,46 +39,57 @@ const Products = ({ filterData }) => {
         sx={{
           justifyContent: "center",
           alignItems: "center",
+          minHeight: "calc(100% - 256px)",
         }}
       >
-        {data.map((data, index) => {
-          return (
-            // <Grid item xs={4} key={index}>
-            <Paper
-              key={index}
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                padding: "10px",
-                margin: "20px",
-                width: "300px",
-                // background: "#f5f5f5",
-                // minWidth: "200px",
-                // maxWidth: "300px",
-              }}
-            >
-              <img src={data.img} width="100" height="150" />
-              <Typography variant="h6">{data.product_name}</Typography>
-              <Typography variant="body2">
-                ({data.purifying_technology})
-              </Typography>
-              <Typography variant="body2">{data.capacity}L Capacity</Typography>
-              <Typography variant="body2">{data.voltage}VDC Volt</Typography>
-              <Typography variant="body2">
-                {data.booster_pump} Booster Pump
-              </Typography>
-              <Typography variant="body1" sx={{ fontWeight: "600" }}>
-                MRP ₹{data.price}/-
-              </Typography>
-              <Button variant="contained" onClick={buyNowHandler}>
-                Buy Now
-              </Button>
-            </Paper>
-            // </Grid>
-          );
-        })}
+        {data.length > 0 ? (
+          data.map((data, index) => {
+            return (
+              // <Grid item xs={4} key={index}>
+              <Paper
+                key={index}
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  padding: "10px",
+                  margin: "20px",
+                  width: "300px",
+                  // background: "#f5f5f5",
+                  // minWidth: "200px",
+                  // maxWidth: "300px",
+                }}
+              >
+                <img src={data.img} width="100" height="150" />
+                <Typography variant="h6">{data.product_name}</Typography>
+                <Typography variant="body2">
+                  ({data.purifying_technology})
+                </Typography>
+                <Typography variant="body2">
+                  {data.capacity}L Capacity
+                </Typography>
+                <Typography variant="body2">{data.voltage}VDC Volt</Typography>
+                <Typography variant="body2">
+                  {data.booster_pump} Booster Pump
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: "600" }}>
+                  MRP ₹{data.price}/-
+                </Typography>
+                <Button variant="contained" onClick={buyNowHandler}>
+                  Buy Now
+                </Button>
+              </Paper>
+              // </Grid>
+            );
+          })
+        ) : (
+          <>
+            <ProductSkeleton />
+            <ProductSkeleton />
+            <ProductSkeleton />
+          </>
+        )}
       </Grid>
     </>
   );

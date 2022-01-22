@@ -5,7 +5,7 @@ const baseURL = process.env.REACT_APP_API_BASE_URL;
 
 export const getAllProducts = (type, pageNo) => {
   return async (dispatch) => {
-    dispatch(uiActions.toggleLoader());
+    // dispatch(uiActions.toggleLoader());
     const getData = async () => {
       const response = await axios.get(
         `https://pragyarosystem-heroku.herokuapp.com/products`
@@ -31,7 +31,7 @@ export const getAllProducts = (type, pageNo) => {
         );
       }
     } finally {
-      dispatch(uiActions.toggleLoader());
+      // dispatch(uiActions.toggleLoader());
     }
   };
 };
