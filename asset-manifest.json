@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/pragyarosystem/static/css/main.cd9e915f.css",
-    "main.js": "/pragyarosystem/static/js/main.a31fa441.js",
+    "main.css": "/pragyarosystem/static/css/main.d9f7fdf3.css",
+    "main.js": "/pragyarosystem/static/js/main.d815325f.js",
     "static/media/hmareyha.jpeg": "/pragyarosystem/static/media/hmareyha.12dfecf3df6831980bf8.jpeg",
     "static/media/offer.jpeg": "/pragyarosystem/static/media/offer.6c16ae51fe6d8269413a.jpeg",
     "static/media/navvarsh.jpeg": "/pragyarosystem/static/media/navvarsh.c1c9d29838d70a9f961d.jpeg",
     "static/media/loader.gif": "/pragyarosystem/static/media/loader.6b343efacd46ebcfd84b.gif",
     "index.html": "/pragyarosystem/index.html",
-    "main.cd9e915f.css.map": "/pragyarosystem/static/css/main.cd9e915f.css.map",
-    "main.a31fa441.js.map": "/pragyarosystem/static/js/main.a31fa441.js.map"
+    "main.d9f7fdf3.css.map": "/pragyarosystem/static/css/main.d9f7fdf3.css.map",
+    "main.d815325f.js.map": "/pragyarosystem/static/js/main.d815325f.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd9e915f.css",
-    "static/js/main.a31fa441.js"
+    "static/css/main.d9f7fdf3.css",
+    "static/js/main.d815325f.js"
   ]
 }
